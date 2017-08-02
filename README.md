@@ -7,7 +7,7 @@ mkdir public
 mkdir src
 touch server.js
 touch .babelrc
-yarn add -D webpack express react react-dom babel-core babel-preset-es2015 babel-loader babel-preset-react-app file-loader css-loader babel-preset-stage-2
+yarn add -D webpack express react react-dom babel-core babel-cli babel-preset-es2015 babel-loader babel-preset-react-app file-loader css-loader babel-preset-stage-2
 ```
 
 # Step 2: Setup express server
