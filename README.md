@@ -58,4 +58,4 @@ app.listen(process.env.PORT || 3000, () => {
 }
 ```
 
-> Note: ***We are not using preset `es2015` as webpack 2 and higher ship with inbuilt support for es2015***
+> ***Note: We are not using preset `es2015` as webpack 2 and higher ship with inbuilt support for es2015***
