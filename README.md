@@ -129,3 +129,11 @@ module.exports = {
     }
 };
 ```
+
+> Now add `"dev": "NODE_ENV=development webpack & NODE_ENV=development babel-node server.js"` to
+> your `package.json` inside `scripts` object and run `yarn dev`. Open `localhost:3000` on the browser
+> and you will see the text `React App` from your `App` component. Your React app is now running.
+
+***Note: It is required to specify `NODE_ENV=development` in the scripts
+As it is required by `babel-preset-react-app`. You can also use `babel-preset-react`
+if you don't feel like specifying node environment.***
