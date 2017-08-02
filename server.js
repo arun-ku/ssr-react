@@ -11,7 +11,7 @@ app.get('*', (req,res) => {
         <head>
             <meta charset="UTF-8">
             <title>Title</title>
-            <script src="/bundle.js"></script>
+            <script src="/bundle.js" defer></script>
         </head>
         <body>
             <div id="app">HTML Content</div>

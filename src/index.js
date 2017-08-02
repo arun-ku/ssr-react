@@ -5,4 +5,4 @@ import App from './Components/App';
 
 const elem = document.getElementById('app');
 
-render(App, elem);
+render(<App />, elem);

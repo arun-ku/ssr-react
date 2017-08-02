@@ -28,7 +28,7 @@ app.get('*', (req,res) => {
         <head>
             <meta charset="UTF-8">
             <title>React SSR</title>
-            <script src="/bundle.js"></script>
+            <script src="/bundle.js" defer></script>
         </head>
         <body>
             <div id="app">HTML Content</div>
@@ -83,7 +83,7 @@ import App from './Components/App';
 
 const elem = document.getElementById('app');
 
-render(App, elem);
+render(<App />, elem);
 ```
 
 ***./src/Components/App/index.js***
@@ -98,4 +98,34 @@ export default class App extends Component {
         );
     }
 }
+```
+
+# Step 5: Add webpack configs to `webpack.config.js`
+
+```sh
+touch webpack.config.js
+```
+
+> Add the following to `webpack.config.js`
+
+```javascript
+const webpack = require('webpack');
+const path = require('path');
+
+module.exports = {
+    entry: './src/index.js',
+    output: {
+        path: __dirname,
+        filename: "./public/bundle.js"
+    },
+    module: {
+        rules: [
+            {
+                test: /.js$/,
+                exclude: /(node_modules)/,
+                loader: 'babel-loader',
+            }
+        ]
+    }
+};
 ```
