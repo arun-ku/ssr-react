@@ -7,7 +7,7 @@ mkdir public
 mkdir src
 touch server.js
 touch .babelrc
-yarn add -D webpack express react react-dom babel-core babel-loader babel-preset-react-app file-loader css-loader babel-preset-stage-2
+yarn add -D webpack express react react-dom babel-core babel-preset-es2015 babel-loader babel-preset-react-app file-loader css-loader babel-preset-stage-2
 ```
 
 # Step 2: Setup express server
@@ -27,7 +27,7 @@ app.get('*', (req,res) => {
         <html lang="en">
         <head>
             <meta charset="UTF-8">
-            <title>Title</title>
+            <title>React SSR</title>
             <script src="/bundle.js"></script>
         </head>
         <body>
@@ -54,8 +54,48 @@ app.listen(process.env.PORT || 3000, () => {
 
 ```javascript
 {
-  "presets": ["react-app", "stage-2"]
+  "presets": ["es2015", ""react-app", "stage-2"]
 }
 ```
 
-> ***Note: We are not using preset `es2015` as webpack 2 and higher ship with inbuilt support for es2015***
+> Add babel-node globally by running `npm install -g babel-cli` and run `NODE_ENV=development babel-node server.js`
+> The server will start on localhost:3000. If you open it in browser you'll see the HTML that we just sent.
+> **Now lets start on the clint side react app**
+
+# Step 4: Create react app
+
+```sh
+cd src
+touch index.js
+mkdir Components
+mkdir Components/App
+touch Components/App/index.js
+```
+
+> Add the following code to your files.
+
+***./src/index.js***
+```javascript
+import React from 'react';
+import { render } from 'react-dom';
+
+import App from './Components/App';
+
+const elem = document.getElementById('app');
+
+render(App, elem);
+```
+
+***./src/Components/App/index.js***
+```javascript
+import React from 'react';
+import React, { Component } from 'react';
+
+export default class App extends Component {
+    render() {
+        return (
+            <div>React App</div>
+        );
+    }
+}
+```
