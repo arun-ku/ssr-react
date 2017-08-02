@@ -10,7 +10,7 @@ touch .babelrc
 yarn add -D webpack express react react-dom babel-core babel-loader babel-preset-react-app file-loader css-loader babel-preset-stage-2
 ```
 
-## Step 2: Setup express server
+# Step 2: Setup express server
 
 > Add the following code to your `server.js` file
 
