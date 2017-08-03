@@ -32,3 +32,13 @@ touch index.html
     </body>
 </html>
 ```
+
+> By default the `the webpack dev server` runs on port `8080`. So if we run `localhot:8080` now,
+> we will see the HTML page but the react app will not render. If we check the console we will see
+> error like this `GET http://localhost:8080/bundle.js 404 (Not Found)`. The webpack dev server serves
+> out files on path `/` but in our config we gave `output` filename to be `./public/bundle.js`. So either
+> we can change it to `bundle.js` or we can change the `scr` in script tag to `/public/bundle.js`.
+> If we do so and run the server again, the react app will be rendered properly.
+
+> ***Now lets add `HMR`***
+
